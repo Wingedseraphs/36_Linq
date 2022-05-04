@@ -55,6 +55,7 @@ namespace MyHomeWork
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.awDataSet11 = new _36_Linq.AWDataSet1();
             this.productPhotoTableAdapter1 = new _36_Linq.AWDataSet1TableAdapters.ProductPhotoTableAdapter();
+            this.productsTableAdapter1 = new _36_Linq.NWDataSet1TableAdapters.ProductsTableAdapter();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -253,7 +254,7 @@ namespace MyHomeWork
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(859, 116);
+            this.dateTimePicker2.Location = new System.Drawing.Point(822, 114);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(244, 21);
@@ -274,7 +275,7 @@ namespace MyHomeWork
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(799, 122);
+            this.label7.Location = new System.Drawing.Point(771, 114);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(15, 15);
@@ -291,6 +292,7 @@ namespace MyHomeWork
             this.button5.TabIndex = 82;
             this.button5.Text = "     某年腳踏車 ";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // dateTimePicker1
             // 
@@ -311,6 +313,7 @@ namespace MyHomeWork
             this.button10.TabIndex = 83;
             this.button10.Text = "     某季腳踏車  ? 有幾筆 ?";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // label3
             // 
@@ -354,6 +357,10 @@ namespace MyHomeWork
             // productPhotoTableAdapter1
             // 
             this.productPhotoTableAdapter1.ClearBeforeFill = true;
+            // 
+            // productsTableAdapter1
+            // 
+            this.productsTableAdapter1.ClearBeforeFill = true;
             // 
             // Frm作業_2
             // 
@@ -410,5 +417,6 @@ namespace MyHomeWork
         private System.Windows.Forms.Label label6;
         private _36_Linq.AWDataSet1 awDataSet11;
         private _36_Linq.AWDataSet1TableAdapters.ProductPhotoTableAdapter productPhotoTableAdapter1;
+        private _36_Linq.NWDataSet1TableAdapters.ProductsTableAdapter productsTableAdapter1;
     }
 }
