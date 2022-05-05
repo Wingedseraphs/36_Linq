@@ -119,30 +119,42 @@ namespace MyHomeWork
 
         private void button8_Click(object sender, EventArgs e)
         {
-            var q = from p in dbContext.Products
-                    where p.UnitPrice > 30
-                    select p;
+            var q = from o in this.dbContext.Orders
+                    group o by o.OrderDate.Value.Year into g
+                    orderby g.Count() descending
+                    select new
+                    {
+                        Year = g.Key,
+                        Count = g.Count()
+                    };
 
             this.dataGridView1.DataSource = q.ToList();
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            var q = from p in this.dbContext.Products.AsEnumerable()
-                    orderby p.UnitsInStock descending, p.ProductID descending
+            var q = from o in this.dbContext.Orders
+                    group o by o.OrderDate.Value.Year into g
                     select new
                     {
-                        p.ProductID,
-                        p.ProductName,
-                        p.UnitPrice,
-                        p.UnitsInStock,
-                        TotalPrice = $"{p.UnitPrice * p.UnitsInStock:c2}"
+                        Year = g.Key,
+                        Count = g.Count()
                     };
 
             this.dataGridView1.DataSource = q.ToList();
+        }
 
-            var q2 = this.dbContext.Products.OrderByDescending(p => p.UnitsInStock).ThenByDescending(p => p.ProductID);
-            this.dataGridView2.DataSource = q2.ToList();
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var q = from o in this.dbContext.Orders
+                    group o by new { o.OrderDate.Value.Year, o.OrderDate.Value.Month } into g
+                    select new
+                    {
+                        Year = g.Key,
+                        Count = g.Count()
+                    };
+
+            this.dataGridView1.DataSource = q.ToList();
         }
     }
 }
